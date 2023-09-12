@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <title>Happy Bday, Vin!</title>
+      <style>
+        .colored-text {
+          display: inline-block;
+          font-size: 38px;
+        }
+        
+        .char-H { color: red; }
+        .char-a { color: orange; }
+        .char-P { color: yellow; }
+        .char-p { color: green; }
+        .char-Y { color: blue; }
+        .char-space { color: purple; }
+        .char-b { color: pink; }
+        .char-I { color: brown; }
+        .char-r { color: cyan; }
+        .char-T { color: magenta; }
+        .char-h { color: gray; }
+        .char-D { color: darkred; }
+        .char-a2 { color: darkorange; }
+        .char-y { color: darkyellow; }
+        .char-comma { color: darkgreen; }
+        .char-space2 { color: darkblue; }
+        .char-V { color: darkpurple; }
+        .char-i { color: darkpink; }
+        .char-n { color: darkbrown; }
+        .char-i2 { color: darkcyan; }
+        .char-t { color: darkmagenta; }
+        .char-a3 { color: darkgray; }
+        .char-exclamation { color: black; }
+
+        body {
+          background: url('./tiger-print-background_23-2147996401.jpg')
+
+        }
+
+       .wish {
+          background: #ffff;
+        }
+
+        .absolute-positioned-flower {
+          position: absolute;
+          right: 40%; 
+          top: 18%;
+          animation: rotateImage 6s linear infinite; /* Adjust the duration and keyframes as needed */
+        }
+
+@keyframes rotateImage {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: rotate(90deg);
+  }
+  60% {
+    transform: rotate(135deg);
+  }
+  80% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(225deg);
+  }
+
+
+       </style>
+  </head>
+
+<body>
+    <div class="wish">
+      <span class="colored-text char-H">H</span>
+      <span class="colored-text char-a">a</span>
+      <span class="colored-text char-P">P</span>
+      <span class="colored-text char-p">p</span>
+      <span class="colored-text char-Y">Y</span>
+      <span class="colored-text char-space">&nbsp;</span>
+      <span class="colored-text char-b">B</span>
+      <span class="colored-text char-I">i</span>
+      <span class="colored-text char-r">r</span>
+      <span class="colored-text char-T">T</span>
+      <span class="colored-text char-h">h</span>
+      <span class="colored-text char-D">D</span>
+      <span class="colored-text char-a2">a</span>
+      <span class="colored-text char-y">y</span>
+      <span class="colored-text char-comma">,</span>
+      <span class="colored-text char-space2">&nbsp;</span>
+      <span class="colored-text char-V">V</span>
+      <span class="colored-text char-i">i</span>
+      <span class="colored-text char-n">n</span>
+      <span class="colored-text char-i2">i</span>
+      <span class="colored-text char-t">t</span>
+      <span class="colored-text char-a3">a</span>
+      <span class="colored-text char-exclamation">!</span>
+      <span class="colored-text char-exclamation"> (Belated)</span>
+    </div>
+
+    <div class="parent-div">
+      <img width="100%" src="./vin.jpg" />
+      <div id='rotating-image' class="absolute-positioned-flower">
+        <img height="80px" src="./sunflower-golden-ratio.png" />
+      </div>
+    </div>
+
+    <script>
+        function rotateImage() {
+          const image = document.getElementById('rotating-image');
+          const currentRotation = getComputedStyle(image).getPropertyValue('transform');
+          
+          // Parse the current transform matrix to extract the current rotation angle
+          const matrix = new DOMMatrix(currentRotation);
+          const currentAngle = Math.atan2(matrix.b, matrix.a) * (180 / Math.PI);
+
+          // Rotate the image to the next angle (e.g., 45 degrees)
+          const nextAngle = currentAngle + 45;
+          image.style.transform = `rotate(${nextAngle}deg)`;
+        }
+    rotateImage()
+    </script>
+
+  </body>
+</html>
