@@ -47,27 +47,25 @@
           animation: rotateImage 6s linear infinite; /* Adjust the duration and keyframes as needed */
         }
 
-@keyframes rotateImage {
-  0% {
-    transform: rotate(0deg);
-  }
-  20% {
-    transform: rotate(45deg);
-  }
-  40% {
-    transform: rotate(90deg);
-  }
-  60% {
-    transform: rotate(135deg);
-  }
-  80% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(225deg);
-  }
-
-
+        @keyframes rotateImage {
+          0% {
+            transform: rotate(0deg);
+          }
+          20% {
+            transform: rotate(45deg);
+          }
+          40% {
+            transform: rotate(90deg);
+          }
+          60% {
+            transform: rotate(135deg);
+          }
+          80% {
+            transform: rotate(180deg);
+          }
+          100% {
+            transform: rotate(225deg);
+          }
        </style>
   </head>
 
@@ -98,29 +96,11 @@
       <span class="colored-text char-exclamation">!</span>
       <span class="colored-text char-exclamation"> (Belated)</span>
     </div>
-
     <div class="parent-div">
       <img width="100%" src="./vin.jpg" />
       <div id='rotating-image' class="absolute-positioned-flower">
         <img height="80px" src="./sunflower-golden-ratio.png" />
       </div>
     </div>
-
-    <script>
-        function rotateImage() {
-          const image = document.getElementById('rotating-image');
-          const currentRotation = getComputedStyle(image).getPropertyValue('transform');
-          
-          // Parse the current transform matrix to extract the current rotation angle
-          const matrix = new DOMMatrix(currentRotation);
-          const currentAngle = Math.atan2(matrix.b, matrix.a) * (180 / Math.PI);
-
-          // Rotate the image to the next angle (e.g., 45 degrees)
-          const nextAngle = currentAngle + 45;
-          image.style.transform = `rotate(${nextAngle}deg)`;
-        }
-    rotateImage()
-    </script>
-
   </body>
 </html>
